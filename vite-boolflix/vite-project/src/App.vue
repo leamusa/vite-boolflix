@@ -1,6 +1,6 @@
 <script>
 import axios from "axios";
-import AppHeader from "./components/Header.vue";
+import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 import CardComponent from "./components/Card.Component.vue";
 
