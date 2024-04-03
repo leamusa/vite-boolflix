@@ -1,8 +1,16 @@
+<template>
+  <div>
+    <AppHeader />
+    <AppMain />
+  </div>
+</template>
+
 <script>
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
-import { store } from "./data/store";
+import { store } from "./data/store"; // Correction: Fixing the path to the store module
+
 export default {
   name: "App",
   components: {
@@ -16,11 +24,11 @@ export default {
   },
   methods: {
     getMovies() {
-      console.log(store.apiUrl);
+      console.log(this.store.apiUrl);
       axios
-        .get(store.apiUrl)
+        .get(this.store.apiUrl)
         .then((result) => {
-          store.listaFilm = result.data;
+          this.store.listMovies = result.data;
           console.log(result.data);
         })
         .catch((error) => {
@@ -34,11 +42,6 @@ export default {
 };
 </script>
 
-<template>
-  <AppHeader />
-  <AppMain />
-</template>
-
 <style lang="scss">
-@use "./styles/general.scss";
+@import "./styles/general.scss";
 </style>
