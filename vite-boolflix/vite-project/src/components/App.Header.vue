@@ -10,16 +10,14 @@ export default {
       <h1>Boolflix</h1>
     </div>
     <div class="search">
-      <div class="input-group">
-        <div class="form-outline">
-          <input
-            type="search"
-            placeholder="search"
-            id="form1"
-            class="form-control"
-          />
-        </div>
-      </div>
+      <input type="text" v-model="store.searchText" />
+      <button @click="searchMovies()">search</button>
+
+      <ul>
+        <li v-for="results in store.results">
+          {{ results.original_title }}
+        </li>
+      </ul>
     </div>
   </header>
 </template>

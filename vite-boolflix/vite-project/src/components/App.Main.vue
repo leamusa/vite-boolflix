@@ -1,5 +1,5 @@
 <script>
-import CardComponent from "./Card.Component.vue";
+import CardComponent from "../components/Card.Component.vue";
 import { store } from "../data/store";
 export default {
   name: "AppMain",
@@ -17,7 +17,7 @@ export default {
 <template>
   <main>
     <div class="container"></div>
-    <CardComponent v-for="film in store.listMovies.results" :card="Movies" />
+    <CardComponent v-for="Movies in store.listMovies.results" :card="Movies" />
   </main>
 </template>
 
