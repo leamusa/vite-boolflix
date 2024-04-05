@@ -1,3 +1,19 @@
+<template>
+  <div class="sc-card col-3">
+    <img :src="getUrlimg()" alt="" />
+
+    <!--  -->
+    <div class="change" v-if="card">
+      <div class="text">
+        <h4>Title:{{ card.title }}</h4>
+        <h3>Title Original:{{ card.original_title }}</h3>
+        <p>Language:{{ card.original_language }}</p>
+        <p>Vote:{{ card.vote_average }}</p>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
 export default {
   name: "CardComponent",
@@ -17,22 +33,6 @@ export default {
   },
 };
 </script>
-
-<template>
-  <div class="sc-card col-3">
-    <img :src="getUrlimg()" alt="" />
-
-    <!--  -->
-    <div class="change" v-if="card">
-      <div class="text">
-        <h4>Title:{{ card.title }}</h4>
-        <h3>Title Original:{{ card.original_title }}</h3>
-        <p>Language:{{ card.original_language }}</p>
-        <p>Vote:{{ card.vote_average }}</p>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style>
 .sc-card {
