@@ -2,47 +2,41 @@
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
-import CardComponent from "./components/Card.Component.vue";
 
 import { store } from "./data/store";
+
 export default {
   name: "App",
   components: {
     AppHeader,
     AppMain,
-    CardComponent,
   },
   data() {
     return {
       store,
     };
   },
-  methods: {
-    getMovies() {
-      console.log(store.apiUrl);
-      axios
-        .get(store.apiUrl)
-        .then((result) => {
-          store.listMovies = result.data;
-          console.log(result.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
   mounted() {
-    this.getMovies();
+    this.getMovies(); // Chiamata alla funzione per ottenere i film quando il componente è montato
+  },
+  methods: {
+    async getMovies() {
+      try {
+        const response = await axios.get(store.apiUrl); // Esegue la richiesta GET all'API
+        this.store.listMovies = response.data; // Aggiorna la lista dei film nello store Vuex con i dati ottenuti dalla chiamata API
+      } catch (error) {
+        console.error("Error fetching movies:", error); // Gestisce eventuali errori durante la chiamata API
+      }
+    },
   },
 };
 </script>
 
 <template>
-  <AppHeader />
-  <AppMain />
-  <CardComponent />
+  <div>
+    <AppHeader />
+    <AppMain />
+  </div>
 </template>
 
-<style lang="scss">
-@use "./styles/general.scss";
-</style>
+<style lang="scss"></style>
