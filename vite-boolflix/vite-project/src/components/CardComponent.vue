@@ -35,7 +35,45 @@ export default {
 </template>
 
 <style>
-img {
-  width: 100px;
+.sc-card {
+  flex-basis: 25%;
+  min-height: 300px;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+
+  img {
+    max-width: 300px;
+    display: flex;
+  }
+
+  &:hover .change {
+    opacity: 5;
+    border: 1px solid white;
+  }
+
+  .change {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.445);
+  }
+
+  .text {
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: left;
+  }
 }
 </style>
